@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/toagill/cicddemosite.git'
+    stage('Docker image') {
+            steps {
+                sh 'docker build -t serena77/nano-app .'
+            }
+        }
+    }
